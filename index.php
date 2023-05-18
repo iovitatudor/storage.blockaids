@@ -34,8 +34,8 @@ if (isset($_GET['id'])) {
         echo "<tr><td>". $item->id ."<hr/></td>";
         echo "<td>".$item->name;
         echo "<hr/></td>";
-        echo "<td><a href='" . $_SERVER['REQUEST_URI'] . "/?id=" . $item->id . "'>";
-        echo getMyUrl() . "/?id=" . $item->id;
+        echo "<td><a href='" . $_SERVER['REQUEST_URI'] . "?id=" . $item->id . "'>";
+        echo getMyUrl() . "?id=" . $item->id;
         echo "</a><hr/></td><td>";
         echo "<a href='" . $item->image . "'>" . $item->image . "</a>";
         echo "<hr/></td></tr>";
