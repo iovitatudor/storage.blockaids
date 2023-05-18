@@ -3,9 +3,9 @@
 function getMyUrl()
 {
     $protocol = (!empty($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) == 'on' || $_SERVER['HTTPS'] == '1')) ? 'https://' : 'http://';
-    $server = $_SERVER['SERVER_NAME'];
+    $server = $_SERVER['HTTP_HOST'];
     $port = $_SERVER['SERVER_PORT'] ? ':' . $_SERVER['SERVER_PORT'] : '';
-    return 'https://' . $server . $port;
+    return 'https://' . $server;
 }
 
 if (isset($_GET['id'])) {
