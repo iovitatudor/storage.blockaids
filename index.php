@@ -4,8 +4,8 @@ function getMyUrl()
 {
     $protocol = (!empty($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) == 'on' || $_SERVER['HTTPS'] == '1')) ? 'https://' : 'http://';
     $server = $_SERVER['SERVER_NAME'];
-    $port = $_SERVER['SERVER_PORT'] ? ':'.$_SERVER['SERVER_PORT'] : '';
-    return 'https://'.$server.$port;
+    $port = $_SERVER['SERVER_PORT'] ? ':' . $_SERVER['SERVER_PORT'] : '';
+    return 'https://' . $server . $port;
 }
 
 if (isset($_GET['id'])) {
@@ -31,13 +31,14 @@ if (isset($_GET['id'])) {
     $json_data = json_decode($json);
     echo "<table>";
     foreach ($json_data as $key => $item) {
-        echo "<tr><td>";
-        echo $item->name;
+        echo "<tr><td>". $item->id ."<hr/></td>";
+        echo "<td>".$item->name;
         echo "<hr/></td>";
         echo "<td><a href='" . $_SERVER['REQUEST_URI'] . "?id=" . $item->id . "'>";
         echo getMyUrl() . "?id=" . $item->id;
-        echo "</a><hr/></td>";
-        echo "</tr>";
+        echo "</a><hr/></td><td>";
+        echo "<a href='" . $item->image . "'>" . $item->image . "</a>";
+        echo "<hr/></td></tr>";
     }
     echo "</table>";
 }
